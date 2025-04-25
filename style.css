@@ -1,0 +1,316 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Main styling */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Fix sidebar spacing */
+[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+    padding-top: 0;
+}
+
+/* Welcome screen */
+.welcome-container {
+    text-align: center;
+    margin-top: 100px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-container h1 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 2.5rem;
+}
+
+.welcome-container p {
+    font-size: 18px;
+    color: #a0a0a0;
+}
+
+.welcome-image {
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 200px;
+}
+
+/* Sidebar header */
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Chat header */
+.chat-header {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.chat-header h1 {
+    color: white;
+    margin: 0;
+    margin-left: 10px;
+    font-size: 1.5rem;
+}
+
+/* Chat bubble */
+.chat-bubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 998;
+    transition: all 0.3s ease;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.chat-bubble:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(110, 142, 251, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(110, 142, 251, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(110, 142, 251, 0);
+    }
+}
+
+/* Chat message styling */
+.chat-message {
+    padding: 12px 18px;
+    border-radius: 18px;
+    margin-bottom: 12px;
+    max-width: 75%;
+    animation: messageAppear 0.3s forwards;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+.user-message {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    border-radius: 18px 18px 4px 18px;
+    margin-left: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bot-message {
+    background: #f0f2f5;
+    color: #333;
+    border-radius: 18px 18px 18px 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typing indicator */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #6e8efb20, #a777e320);
+    border-radius: 18px;
+    width: fit-content;
+    margin: 10px 0;
+}
+
+.typing-indicator span {
+    width: 8px;
+    height: 8px;
+    background-color: #6e8efb;
+    border-radius: 50%;
+    animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-6px); }
+}
+
+/* File upload area styling */
+.upload-area {
+    border: 2px dashed #6e8efb;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    background-color: #6e8efb10;
+}
+
+/* Custom Streamlit styling */
+.stTextInput > div > div > input {
+    border-radius: 20px;
+}
+
+/* Fix for Streamlit file uploader */
+[data-testid="stFileUploader"] {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Make the browse files button visible */
+[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"] {
+    border: 2px dashed #6e8efb !important;
+    background-color: rgba(110, 142, 251, 0.05) !important;
+}
+
+/* Ensure file uploader's browse files button is visible */
+[data-testid="stFileUploader"] button {
+    display: inline-flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: linear-gradient(135deg, #6e8efb, #a777e3) !important;
+    color: white !important;
+    border-radius: 20px !important;
+}
+
+/* Button styling for all buttons */
+.stButton > button {
+    border-radius: 20px;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    border: none;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Specific styles for minimize button container */
+.minimize-button-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.minimize-button-container button {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: 100%;
+}
+
+/* Chat input styling */
+[data-testid="stChatInput"] {
+    padding: 8px 16px;
+    background: rgb(27, 27, 27);
+}
+
+/* Hide default Streamlit elements */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+
+/* Remove the rule that hides secondary buttons */
+button[kind="secondary"] {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Dark theme for the application */
+.stApp {
+    background-color: #121726;
+}
+
+/* Streamlit dark theme elements */
+.stApp [data-testid="stToolbar"] {
+    visibility: hidden;
+}
+
+.stApp .stAlert {
+    background-color: #232b45;
+    color: #e0e0e0;
+}
+
+.stApp .stMarkdown {
+    color: #e0e0e0;
+}
+
+/* Specific styling for toggle button to make it visible */
+button[data-testid="baseButton-secondary"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Make toggle button visible and properly styled */
+#toggle_chat_button {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 60px !important;
+    height: 60px !important;
+    opacity: 0 !important; /* Keep opacity 0 since it's under the chat bubble */
+    z-index: 999 !important;
+    cursor: pointer;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .chat-message {
+        max-width: 85%;
+    }
+    
+    .chat-header h1 {
+        font-size: 1.2rem;
+    }
+    
+    .welcome-container h1 {
+        font-size: 2rem;
+    }
+    
+    .welcome-image {
+        max-width: 150px;
+    }
+    
+    /* Make buttons more visible on mobile */
+    .stButton > button {
+        padding: 10px 15px !important;
+    }
+}
